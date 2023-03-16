@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="buttonNumberTextSize">40sp</dimen>
+    <dimen name="tvResultTextSize">48sp</dimen>
+    <dimen name="buttonNumberMargin">8dp</dimen>
+    <dimen name="tvResultMargin">8dp</dimen>
+    <dimen name="buttonNumberWidth">0dp</dimen>
+    <dimen name="tvResultWidth">0dp</dimen>
+    <dimen name="tvResultHeight">0dp</dimen>
+    <dimen name="llMainLayoutWidth">0dp</dimen>
+    <dimen name="llMainLayoutHeight">0dp</dimen>
+</resources>

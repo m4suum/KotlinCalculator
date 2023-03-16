@@ -1,16 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.KotlinCalculator" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <style name="Theme.KotlinCalculator" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:forceDarkAllowed" tools:targetApi="30">false</item>
+        <item name="android:buttonStyle">@style/buttonNumber</item>
+    </style>
+
+    <style name="buttonNumber" parent="android:style/Widget.Button">
+        <item name="android:textSize">@dimen/buttonNumberTextSize</item>
+        <item name="android:layout_margin">@dimen/buttonNumberMargin</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:background">@drawable/button_number</item>
+    </style>
+
+    <style name="tvResult" parent="android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/tvResultTextSize</item>
+        <item name="android:layout_margin">@dimen/tvResultMargin</item>
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textColor">@color/result_text</item>
+        <item name="android:background">@drawable/tv_result</item>
     </style>
 </resources>
