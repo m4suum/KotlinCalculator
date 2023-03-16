@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background"
+    tools:context=".BasicCalculatorActivity">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvResult"
+        style="@style/tvResult"
+        android:layout_width="@dimen/tvResultWidth"
+        android:layout_height="@dimen/tvResultHeight"
+        android:gravity="end|center"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llMainLayout"
+        android:layout_width="@dimen/llMainLayoutWidth"
+        android:layout_height="@dimen/llMainLayoutHeight"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult">
+
+        <LinearLayout
+            android:id="@+id/llFirstLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberOne"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_one"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberTwo"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_two"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberThree"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_three"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonEquals"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/equals"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSecondLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberFour"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_four"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberFive"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_five"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberSix"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_six"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonPlus"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/plus"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llThirdLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberSeven"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_seven"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberEight"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_eight"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberNine"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_nine"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonMinus"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/minus"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFourthLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonNumberZero"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/number_zero"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonPoint"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/point"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonDivide"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/divide"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonMultiply"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/multiply"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFifthLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonOpenCalculatorPro"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/open_engineer_calculator"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonPercent"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/percent"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonClear"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/clear"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonClearAll"
+                style="@style/buttonNumber"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/clear_all"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
