@@ -1,7 +1,8 @@
 package com.example.kotlincalculator.calculatorlogic
 
-object MultiplyOperation {
-    fun multiply(firstNumber: Float, secondNumber: Float): Float {
-        return firstNumber * secondNumber
-    }
+import java.math.BigDecimal
+
+class MultiplyOperation {
+    fun multiply(firstNumber: BigDecimal, secondNumber: BigDecimal) =
+        firstNumber.multiply(secondNumber).toString()
 }

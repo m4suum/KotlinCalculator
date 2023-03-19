@@ -1,7 +1,8 @@
 package com.example.kotlincalculator.calculatorlogic
 
-object MinusOperation {
-    fun minus(firstNumber: Float, secondNumber: Float): Float {
-        return firstNumber - secondNumber
-    }
+import java.math.BigDecimal
+
+class MinusOperation {
+    fun minus(firstNumber: BigDecimal, secondNumber: BigDecimal) =
+        firstNumber.subtract(secondNumber).toString()
 }

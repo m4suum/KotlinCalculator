@@ -1,7 +1,7 @@
 package com.example.kotlincalculator.calculatorlogic
 
-object PercentOperation {
-    fun percent(number: Float): Float {
-        return number / 100
-    }
+import java.math.BigDecimal
+
+class PercentOperation {
+    fun percent(number: BigDecimal) = number.divide(100.0.toBigDecimal()).toString()
 }

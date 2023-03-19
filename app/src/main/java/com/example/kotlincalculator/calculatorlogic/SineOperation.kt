@@ -1,7 +1,5 @@
 package com.example.kotlincalculator.calculatorlogic
 
-object SineOperation {
-    fun sin(number: Float): Float {
-        return kotlin.math.sin(Math.toRadians(number.toDouble())).toFloat()
-    }
+class SineOperation {
+    fun sin(number: Double) = kotlin.math.sin(Math.toRadians(number)).toString()
 }

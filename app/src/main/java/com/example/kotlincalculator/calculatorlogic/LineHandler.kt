@@ -1,96 +1,104 @@
 package com.example.kotlincalculator.calculatorlogic
 
-import java.util.*
+import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.convertResult
 
-object LineHandler {
-    private val plusOperation: PlusOperation = PlusOperation
-    private val minusOperation: MinusOperation = MinusOperation
-    private val multiplyOperation: MultiplyOperation = MultiplyOperation
-    private val divideOperation: DivideOperation = DivideOperation
-    private val percentOperation: PercentOperation = PercentOperation
-    private val degreeOperation: DegreeOperation = DegreeOperation
-    private val rootOperation: RootOperation = RootOperation
-    private val factorialOperation: FactorialOperation = FactorialOperation
-    private val sineOperation: SineOperation = SineOperation
-    private val cosineOperation: CosineOperation = CosineOperation
+class LineHandler {
+    private val plusOperation: PlusOperation = PlusOperation()
+    private val minusOperation: MinusOperation = MinusOperation()
+    private val multiplyOperation: MultiplyOperation = MultiplyOperation()
+    private val divideOperation: DivideOperation = DivideOperation()
+    private val percentOperation: PercentOperation = PercentOperation()
+    private val degreeOperation: DegreeOperation = DegreeOperation()
+    private val rootOperation: RootOperation = RootOperation()
+    private val factorialOperation: FactorialOperation = FactorialOperation()
+    private val sineOperation: SineOperation = SineOperation()
+    private val cosineOperation: CosineOperation = CosineOperation()
 
     fun handleLine(lineOfCalculations: String): String {
-        var firstResult: Float
-        val strings = ArrayList(
-            mutableListOf(
-                *lineOfCalculations.split(" ".toRegex()).dropLastWhile { it.isEmpty() }
-                    .toTypedArray()))
-        for (i in strings.indices.reversed()) {
+        var firstResult: String?
+        val strings = lineOfCalculations.split(" ").toTypedArray().toMutableList()
+
+        for (i in strings.size-1 downTo 0) {
             when (strings[i]) {
                 "sin" -> {
-                    firstResult = sineOperation.sin(strings[i + 1].toFloat())
+                    firstResult = sineOperation.sin(strings[i + 1].toDouble()).convertResult()
                     strings.removeAt(i)
-                    strings.add(i, firstResult.toString())
+                    strings.add(i, firstResult)
                     strings.removeAt(i + 1)
                 }
                 "cos" -> {
-                    firstResult = cosineOperation.cos(strings[i + 1].toFloat())
+                    firstResult = cosineOperation.cos(strings[i + 1].toDouble()).convertResult()
                     strings.removeAt(i)
-                    strings.add(i, firstResult.toString())
+                    strings.add(i, firstResult)
                     strings.removeAt(i + 1)
                 }
                 "√" -> {
-                    firstResult = rootOperation.root(strings[i + 1].toFloat())
+                    firstResult = rootOperation.root(strings[i + 1].toBigDecimal()).convertResult()
                     strings.removeAt(i)
-                    strings.add(i, firstResult.toString())
+                    strings.add(i, firstResult)
                     strings.removeAt(i + 1)
                 }
                 "!" -> {
-                    firstResult = factorialOperation.factorial(strings[i - 1].toFloat())
+                    firstResult =
+                        factorialOperation.factorial(strings[i - 1].toDouble()).toString()
                     strings.removeAt(i)
-                    strings.add(i, firstResult.toString())
+                    strings.add(i, firstResult)
                     strings.removeAt(i - 1)
                 }
                 "%" -> {
-                    firstResult = percentOperation.percent(strings[i - 1].toFloat())
+                    firstResult = percentOperation.percent(strings[i - 1].toBigDecimal())
                     strings.removeAt(i)
-                    strings.add(i, firstResult.toString())
+                    strings.add(i, firstResult)
+                    strings.removeAt(i - 1)
+                }
+                "^" -> {
+                    firstResult =
+                        degreeOperation.degree(strings[i - 1].toDouble(), strings[i + 1].toDouble())
+                    strings.removeAt(i)
+                    strings.add(i, firstResult)
+                    strings.removeAt(i + 1)
                     strings.removeAt(i - 1)
                 }
             }
         }
-        for (i in strings.indices.reversed()) {
+        for (i in strings.size-1 downTo 0) {
             when (strings[i]) {
                 "*" -> {
                     firstResult = multiplyOperation.multiply(
-                        strings[i + 1].toFloat(),
-                        strings[i - 1].toFloat()
+                        strings[i + 1].toBigDecimal(),
+                        strings[i - 1].toBigDecimal()
                     )
                     strings.removeAt(i)
-                    strings.add(i, firstResult.toString())
+                    strings.add(i, firstResult)
                     strings.removeAt(i + 1)
                     strings.removeAt(i - 1)
                 }
                 "/" -> {
                     firstResult =
-                        divideOperation.divide(strings[i - 1].toFloat(), strings[i + 1].toFloat())
+                        divideOperation.divide(
+                            strings[i - 1].toBigDecimal(),
+                            strings[i + 1].toBigDecimal()
+                        )
+                    if (firstResult == "Нельзя делить на ноль"){
+                        return firstResult;
+                    }
                     strings.removeAt(i)
-                    strings.add(i, firstResult.toString())
-                    strings.removeAt(i + 1)
-                    strings.removeAt(i - 1)
-                }
-                "^" -> {
-                    firstResult =
-                        degreeOperation.degree(strings[i - 1].toFloat(), strings[i + 1].toFloat())
-                    strings.removeAt(i)
-                    strings.add(i, firstResult.toString())
+                    strings.add(i, firstResult)
                     strings.removeAt(i + 1)
                     strings.removeAt(i - 1)
                 }
             }
         }
-        var finalResult = strings[0].toFloat()
-        for (i in 0 until strings.size - 1) {
+        var finalResult = strings[0]
+        for (i in 0 until strings.size) {
             when (strings[i]) {
-                "+" -> finalResult = plusOperation.plus(finalResult, strings[i + 1].toFloat())
-                "-" -> finalResult = minusOperation.minus(finalResult, strings[i + 1].toFloat())
+                "+" -> finalResult =
+                    plusOperation.plus(finalResult.toBigDecimal(), strings[i + 1].toBigDecimal())
+                "-" -> finalResult =
+                    minusOperation.minus(finalResult.toBigDecimal(), strings[i + 1].toBigDecimal())
             }
         }
-        return finalResult.toString()
+        return finalResult.replace("\\.0*$".toRegex(), "")
+
     }
 }

@@ -1,9 +1,8 @@
 package com.example.kotlincalculator.calculatorlogic
 
+import java.math.BigDecimal
 import kotlin.math.sqrt
 
-object RootOperation {
-    fun root(number: Float): Float {
-        return sqrt(number.toDouble()).toFloat()
-    }
+class RootOperation {
+    fun root(number: BigDecimal) = sqrt(number.toDouble()).toBigDecimal().toString()
 }

@@ -4,6 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlincalculator.calculatorlogic.Calculator
+import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkPlusMinusMultiplyDivideEquals
+import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkPointPercentDegreeFactorial
+import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkRoot
+import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkSinCos
 import com.example.kotlincalculator.databinding.ActivityEngineeringCalculatorBinding
 
 class EngineeringCalculatorActivity : AppCompatActivity() {
@@ -13,7 +17,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEngineeringCalculatorBinding.inflate(layoutInflater)
         val calculator: Calculator?
-        calculator = Calculator
+        calculator = Calculator()
         var calculations: String
         setContentView(binding.root)
         with(binding) {
@@ -61,18 +65,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonPlusEngineer.setOnClickListener {
                 try {
-                    if (calculations.substring(calculations.length - 1) != " " && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "n" && calculations.substring(
-                            calculations.length - 1
-                        ) != "s"
-                    ) {
+                    if (checkPlusMinusMultiplyDivideEquals(calculations)) {
                         calculations += " + "
                         tvResultEngineer.text = calculations
                     }
@@ -82,18 +75,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonMinusEngineer.setOnClickListener {
                 try {
-                    if (calculations.substring(calculations.length - 1) != " " && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "n" && calculations.substring(
-                            calculations.length - 1
-                        ) != "s"
-                    ) {
+                    if (checkPlusMinusMultiplyDivideEquals(calculations)) {
                         calculations += " - "
                         tvResultEngineer.text = calculations
                     }
@@ -103,18 +85,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonMultiplyEngineer.setOnClickListener {
                 try {
-                    if (calculations.substring(calculations.length - 1) != " " && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "n" && calculations.substring(
-                            calculations.length - 1
-                        ) != "s"
-                    ) {
+                    if (checkPlusMinusMultiplyDivideEquals(calculations)) {
                         calculations += " * "
                         tvResultEngineer.text = calculations
                     }
@@ -124,18 +95,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonDivideEngineer.setOnClickListener {
                 try {
-                    if (calculations.substring(calculations.length - 1) != " " && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "n" && calculations.substring(
-                            calculations.length - 1
-                        ) != "s"
-                    ) {
+                    if (checkPlusMinusMultiplyDivideEquals(calculations)) {
                         calculations += " / "
                         tvResultEngineer.text = calculations
                     }
@@ -145,18 +105,24 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonPointEngineer.setOnClickListener {
                 try {
-                    if (calculations.substring(calculations.length - 1) != " " && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "!" && calculations.substring(
-                            calculations.length - 1
-                        ) != "n" && calculations.substring(calculations.length - 1) != "s"
-                    ) {
+                    if (calculations.isEmpty()){
+                        calculations += "0."
+                        tvResultEngineer.text = calculations
+                    }
+                    var haveNumber = false
+                    for (i in calculations.length - 1 downTo 0) {
+                        if (calculations[i].isDigit()) {
+                            haveNumber = true
+                            break
+                        } else if (calculations[i] == ' ') {
+                            break
+                        }
+                    }
+                    if (!haveNumber) {
+                        calculations += "0."
+                        tvResultEngineer.text = calculations
+                    }
+                    if (checkPointPercentDegreeFactorial(calculations)) {
                         var havePoint = false
                         for (i in calculations.length - 1 downTo 0) {
                             if (calculations[i] == '.') {
@@ -177,18 +143,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonPercentEngineer.setOnClickListener {
                 try {
-                    if (calculations.substring(calculations.length - 1) != " " && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "!" && calculations.substring(
-                            calculations.length - 1
-                        ) != "n" && calculations.substring(calculations.length - 1) != "s"
-                    ) {
+                    if (checkPointPercentDegreeFactorial(calculations)) {
                         calculations += " %"
                         tvResultEngineer.text = calculations
                     }
@@ -210,21 +165,8 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonEqualsEngineer.setOnClickListener {
                 try {
-                    if (calculations.substring(calculations.length - 1) != " " && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "n" && calculations.substring(
-                            calculations.length - 1
-                        ) != "s"
-                    ) {
-                        calculations =
-                            calculator.calculatorHandleLine(calculations)
-                                .replace("\\.?0*$".toRegex(), "")
+                    if (checkPlusMinusMultiplyDivideEquals(calculations)) {
+                        calculations = calculator.calculatorHandleLine(calculations)
                         when (calculations) {
                             "300" -> {
                                 tvResultEngineer.text = "Синий трактор едет к нам"
@@ -251,18 +193,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             tvResultEngineer.text = calculations
             buttonDegree.setOnClickListener {
                 try {
-                    if (calculations.substring(calculations.length - 1) != " " && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "!" && calculations.substring(
-                            calculations.length - 1
-                        ) != "n" && calculations.substring(calculations.length - 1) != "s"
-                    ) {
+                    if (checkPointPercentDegreeFactorial(calculations)) {
                         calculations += " ^ "
                         tvResultEngineer.text = calculations
                     }
@@ -272,24 +203,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonRoot.setOnClickListener {
                 try {
-                    if (calculations == "" || !calculations.substring(calculations.length - 1)
-                            .chars()
-                            .allMatch { codePoint: Int ->
-                                Character.isDigit(
-                                    codePoint
-                                )
-                            } && calculations[calculations.length - 2] != '√' && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "!" && calculations.substring(
-                            calculations.length - 1
-                        ) != "n" && calculations.substring(calculations.length - 1) != "s"
-                    ) {
+                    if (checkRoot(calculations)) {
                         calculations += "√ "
                         tvResultEngineer.text = calculations
                     }
@@ -299,18 +213,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonFactorial.setOnClickListener {
                 try {
-                    if (calculations.substring(calculations.length - 1) != " " && calculations.substring(
-                            calculations.length - 1
-                        ) != "." && calculations.substring(calculations.length - 1) != "+" && calculations.substring(
-                            calculations.length - 1
-                        ) != "-" && calculations.substring(calculations.length - 1) != "*" && calculations.substring(
-                            calculations.length - 1
-                        ) != "/" && calculations.substring(calculations.length - 1) != "^" && calculations.substring(
-                            calculations.length - 1
-                        ) != "√" && calculations.substring(calculations.length - 1) != "!" && calculations.substring(
-                            calculations.length - 1
-                        ) != "n" && calculations.substring(calculations.length - 1) != "s"
-                    ) {
+                    if (checkPointPercentDegreeFactorial(calculations)) {
                         calculations += " !"
                         tvResultEngineer.text = calculations
                     }
@@ -320,23 +223,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonSin.setOnClickListener {
                 try {
-                    if (calculations == "" || !calculations.chars()
-                            .allMatch { codePoint: Int ->
-                                Character.isDigit(
-                                    codePoint
-                                )
-                            } && calculations.substring(calculations.length - 1) != "." && calculations.substring(
-                            calculations.length - 1
-                        ) != "+" && calculations.substring(calculations.length - 1) != "-" && calculations.substring(
-                            calculations.length - 1
-                        ) != "*" && calculations.substring(calculations.length - 1) != "/" && calculations.substring(
-                            calculations.length - 1
-                        ) != "^" && calculations.substring(calculations.length - 1) != "√" && calculations.substring(
-                            calculations.length - 1
-                        ) != "!" && calculations.substring(calculations.length - 1) != "n" && calculations.substring(
-                            calculations.length - 1
-                        ) != "s"
-                    ) {
+                    if (checkSinCos(calculations)) {
                         calculations += "sin "
                         tvResultEngineer.text = calculations
                     }
@@ -346,23 +233,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonCos.setOnClickListener {
                 try {
-                    if (calculations == "" || !calculations.chars()
-                            .allMatch { codePoint: Int ->
-                                Character.isDigit(
-                                    codePoint
-                                )
-                            } && calculations.substring(calculations.length - 1) != "." && calculations.substring(
-                            calculations.length - 1
-                        ) != "+" && calculations.substring(calculations.length - 1) != "-" && calculations.substring(
-                            calculations.length - 1
-                        ) != "*" && calculations.substring(calculations.length - 1) != "/" && calculations.substring(
-                            calculations.length - 1
-                        ) != "^" && calculations.substring(calculations.length - 1) != "√" && calculations.substring(
-                            calculations.length - 1
-                        ) != "!" && calculations.substring(calculations.length - 1) != "n" && calculations.substring(
-                            calculations.length - 1
-                        ) != "s"
-                    ) {
+                    if (checkSinCos(calculations)) {
                         calculations += "cos "
                         tvResultEngineer.text = calculations
                     }

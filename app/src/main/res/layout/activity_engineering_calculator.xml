@@ -16,7 +16,7 @@
         android:gravity="end|center"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintHeight_percent="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,53 +40,50 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonNumberOneEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/number_one"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonNumberTwoEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/number_two"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonNumberThreeEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/number_three"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonDegree"
-                style="@style/buttonNumber"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/degree"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonEqualsEngineer"
-                style="@style/buttonNumber"
+                android:id="@+id/buttonPlusEngineer"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/equals"
+                android:text="@string/plus"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -98,53 +95,49 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonNumberFourEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/number_four"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonNumberFiveEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/number_five"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonNumberSixEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/number_six"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonRoot"
-                style="@style/buttonNumber"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/root"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonPlusEngineer"
-                style="@style/buttonNumber"
+                android:id="@+id/buttonMinusEngineer"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/plus"
+                android:text="@string/minus"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
+
 
         </LinearLayout>
 
@@ -157,53 +150,49 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonNumberSevenEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/number_seven"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonNumberEightEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/number_eight"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonNumberNineEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/number_nine"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonFactorial"
-                style="@style/buttonNumber"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/factorial"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonMinusEngineer"
-                style="@style/buttonNumber"
+                android:id="@+id/buttonMultiplyEngineer"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/minus"
+                android:text="@string/multiply"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
+
 
         </LinearLayout>
 
@@ -214,54 +203,52 @@
             android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonNumberZeroEngineer"
-                style="@style/buttonNumber"
-                android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/number_zero"
-                tools:ignore="NestedWeights,VisualLintButtonSize" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonPointEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/point"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonSin"
-                style="@style/buttonNumber"
+                android:id="@+id/buttonNumberZeroEngineer"
+                style="@style/buttonNumberEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:text="@string/number_zero"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonSin"
+                style="@style/buttonOperationEngineerCalculator"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:text="@string/sin"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonDivideEngineer"
-                style="@style/buttonNumber"
+                android:id="@+id/buttonCos"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:text="@string/cos"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonDivideEngineer"
+                style="@style/buttonOperationEngineerCalculator"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:text="@string/divide"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonMultiplyEngineer"
-                style="@style/buttonNumber"
-                android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/multiply"
-                tools:ignore="NestedWeights,VisualLintButtonSize" />
 
         </LinearLayout>
 
@@ -273,52 +260,48 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonOpenBasicCalculator"
-                style="@style/buttonNumber"
+                style="@style/buttonEqualsSwitchEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/open_base_calculator"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonPercentEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/percent"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonCos"
-                style="@style/buttonNumber"
-                android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/cos"
-                tools:ignore="NestedWeights,VisualLintButtonSize" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonClearEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/clear"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonClearAllEngineer"
-                style="@style/buttonNumber"
+                style="@style/buttonOperationEngineerCalculator"
                 android:layout_width="@dimen/buttonNumberWidth"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:text="@string/clear_all"
+                tools:ignore="NestedWeights,VisualLintButtonSize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonEqualsEngineer"
+                style="@style/buttonEqualsSwitchEngineerCalculator"
+                android:layout_width="@dimen/buttonNumberWidth"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/equals"
                 tools:ignore="NestedWeights,VisualLintButtonSize" />
 
         </LinearLayout>
