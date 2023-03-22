@@ -3,9 +3,9 @@ package com.example.kotlincalculator
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.kotlincalculator.calculatorlogic.Calculator
 import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkPlusMinusMultiplyDivideEquals
 import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkPointPercentDegreeFactorial
+import com.example.kotlincalculator.calculatorlogic.LineHandler
 import com.example.kotlincalculator.databinding.ActivityBasicCalculatorBinding
 
 class BasicCalculatorActivity : AppCompatActivity() {
@@ -16,8 +16,7 @@ class BasicCalculatorActivity : AppCompatActivity() {
         setContentView(binding.root)
         var calculations = ""
         val key = "KEFTEME_CALCULATOR"
-        val calculator: Calculator?
-        calculator = Calculator()
+        val lineHandler = LineHandler()
         with(binding) {
             tvResult.text = ""
             buttonNumberOne.setOnClickListener {
@@ -102,7 +101,7 @@ class BasicCalculatorActivity : AppCompatActivity() {
             }
             buttonPoint.setOnClickListener {
                 try {
-                    if (calculations.isEmpty()){
+                    if (calculations.isEmpty()) {
                         calculations += "0."
                         tvResult.text = calculations
                     }
@@ -119,7 +118,7 @@ class BasicCalculatorActivity : AppCompatActivity() {
                         calculations += "0."
                         tvResult.text = calculations
                     }
-                    if (checkPointPercentDegreeFactorial (calculations)) {
+                    if (checkPointPercentDegreeFactorial(calculations)) {
                         var havePoint = false
                         for (i in calculations.length - 1 downTo 0) {
                             if (calculations[i] == '.') {
@@ -140,7 +139,7 @@ class BasicCalculatorActivity : AppCompatActivity() {
             }
             buttonPercent.setOnClickListener {
                 try {
-                    if (checkPointPercentDegreeFactorial (calculations)) {
+                    if (checkPointPercentDegreeFactorial(calculations)) {
                         calculations += " %"
                         tvResult.text = calculations
                     }
@@ -164,7 +163,7 @@ class BasicCalculatorActivity : AppCompatActivity() {
                 try {
                     if (checkPlusMinusMultiplyDivideEquals(calculations)) {
                         calculations =
-                            calculator.calculatorHandleLine(calculations)
+                            lineHandler.handleLine(calculations)
                         tvResult.text = calculations
                     }
                 } catch (s: IndexOutOfBoundsException) {

@@ -3,11 +3,11 @@ package com.example.kotlincalculator
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.kotlincalculator.calculatorlogic.Calculator
 import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkPlusMinusMultiplyDivideEquals
 import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkPointPercentDegreeFactorial
 import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkRoot
 import com.example.kotlincalculator.calculatorlogic.Extensions.Companion.checkSinCos
+import com.example.kotlincalculator.calculatorlogic.LineHandler
 import com.example.kotlincalculator.databinding.ActivityEngineeringCalculatorBinding
 
 class EngineeringCalculatorActivity : AppCompatActivity() {
@@ -16,8 +16,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEngineeringCalculatorBinding.inflate(layoutInflater)
-        val calculator: Calculator?
-        calculator = Calculator()
+        val lineHandler = LineHandler()
         var calculations: String
         setContentView(binding.root)
         with(binding) {
@@ -105,7 +104,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             }
             buttonPointEngineer.setOnClickListener {
                 try {
-                    if (calculations.isEmpty()){
+                    if (calculations.isEmpty()) {
                         calculations += "0."
                         tvResultEngineer.text = calculations
                     }
@@ -166,7 +165,7 @@ class EngineeringCalculatorActivity : AppCompatActivity() {
             buttonEqualsEngineer.setOnClickListener {
                 try {
                     if (checkPlusMinusMultiplyDivideEquals(calculations)) {
-                        calculations = calculator.calculatorHandleLine(calculations)
+                        calculations = lineHandler.handleLine(calculations)
                         when (calculations) {
                             "300" -> {
                                 tvResultEngineer.text = "Синий трактор едет к нам"

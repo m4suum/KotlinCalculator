@@ -6,7 +6,7 @@ import kotlin.math.roundToInt
 class Extensions {
     companion object {
 
-        /**Функция округления чисел при неправильном вычислении с Double*/
+        /**Функция для получения правильных чисел при неправильном вычислении с Double*/
         fun String.convertResult(): String {
             try {
                 if (this.substring(this.length - 17, this.length) == "49999999999999994") {
@@ -85,6 +85,19 @@ class Extensions {
             ) != "s" && calculations.substring(calculations.length - 1) != "%"
         }
 
+        fun String.removeNulls():String{
+            return if (this.contains(".") && this.substring(this.length-1) == "0"){
+                var count = 0
+                for ( i in this.length-1 downTo this.indexOf(".")){
+                    if (this.toCharArray()[i] == '0'){
+                        count++
+                    }
+                }
+                this.substring(0,this.length-count)
+            }else {
+                this
+            }
+        }
     }
 
 }
